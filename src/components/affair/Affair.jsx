@@ -4,6 +4,7 @@ import tarakan from '../../assets/tarakan.svg'
 import burgalar from '../../assets/BURGALAR.svg'
 import chayon from '../../assets/CHAYON.svg'
 import kemiruvchi from '../../assets/KEMERUVCHILAR.svg'
+import { useTranslation } from "react-i18next";
 
 
 const services = [
@@ -40,10 +41,13 @@ const services = [
 ];
 
 const Affair = () => {
+
+    const { t } = useTranslation();
+
     return (
         <section className="mt-[159px]">
             <div className="container mx-auto px-6">
-                <h2 className="text-[52px] font-bold text-gray-800 mb-[43px]">Xizmat turi</h2>
+                <h2 className="text-[52px] font-bold text-gray-800 mb-[43px]">{t("Xizmat turi")}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((service, index) => (
                         <div
@@ -51,9 +55,9 @@ const Affair = () => {
                             className="bg-[#C4F7CB] p-6 rounded-xl"
                         >
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                                {service.title}
+                                {t(service.title)}
                             </h3>
-                            <p className="text-gray-600 mt-[16px] min-h-[80px]">{service.description}</p>
+                            <p className="text-gray-600 mt-[16px] min-h-[80px]">{t(service.description)}</p>
                             <div className="flex flex-row-reverse gap-[65px]">
                                 <img
                                     src={service.image}
@@ -61,7 +65,7 @@ const Affair = () => {
                                     className="w-[150px] h-[150px] rounded-full mx-auto mb-4"
                                 />
                                 <button className='mt-[95px] hover:opacity-65 rounded-[25px] w-[190px] h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer'>
-                                    Bog'lanish
+                                    {t("Bog'lanish")}
                                 </button>
                             </div>
                         </div>

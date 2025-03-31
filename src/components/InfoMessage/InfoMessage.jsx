@@ -1,7 +1,11 @@
 import React from 'react';
 import Infomessage from '../../assets/Infomessage.jpg';
+import { useTranslation } from 'react-i18next';
 
 const InfoMessage = () => {
+
+  const { t, i18n } = useTranslation();
+
   return (
     <section className='relative mt-[116px]'>
       <div className='container mx-auto relative'>
@@ -12,13 +16,13 @@ const InfoMessage = () => {
 
         <div className='relative md:absolute md:top-1/2 md:right-10 md:translate-y-[-50%] flex flex-col items-start justify-center max-w-[500px] px-6 py-10 bg-transparent z-50'>
           <h2 className='text-[#FAFAFA] text-[40px] font-bold w-full mb-5'>
-            Klapa va zararli hashorot endi yo'q deb hisoblang !!!
+            {t("Klapa va zararli hashorot endi yo'q deb hisoblang")} !!!
           </h2>
           <p className='text-white w-full mb-12'>
-            Bizning ko'p yillardan beri o'z faoliyatini olib borayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun
+            {t("Bizning ko'p yillardan beri o'z faoliyatini olib borayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun")}
           </p>
           <button className='hover:opacity-65 rounded-[25px] w-[190px] h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer'>
-            Bog'lanish
+            {t("Bog'lanish")}
           </button>
         </div>
       </div>

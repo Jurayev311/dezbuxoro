@@ -1,9 +1,13 @@
 import React from 'react'
 import info from '../../assets/info.png'
 import safe from '../../assets/safe.svg'
+import { useTranslation } from 'react-i18next';
 
 
 const Info = () => {
+
+    const { t, i18n } = useTranslation();
+
   return (
     <section className='mt-[116px]'>
         <div className='container mx-auto'>
@@ -16,8 +20,8 @@ const Info = () => {
                     <div className='mb-4'>
                         <img src={safe} alt="safe image" />
                     </div>
-                    <h2 className='text-[32px] font-bold text-[#FAFAFA] mb-[42px]'>Rasmiy foydalanish - 1 yil. Biz xizmat va yuridik shaxslarga xizmat kursatamiz. Xizmatlar litsenziyalangan!!!</h2>
-                    <button className='py-3 px-[30px] bg-[#FAFAFA] text-[20px] font-bold text-black rounded-[25px]'>Bog'lanish</button>
+                    <h2 className='text-[32px] font-bold text-[#FAFAFA] mb-[42px]'>{t("Rasmiy foydalanish - 1 yil. Biz xizmat va yuridik shaxslarga xizmat kursatamiz. Xizmatlar litsenziyalangan")}!!!</h2>
+                    <button className='py-3 px-[30px] bg-[#FAFAFA] text-[20px] font-bold text-black rounded-[25px]'>{t("Bog'lanish")}</button>
                 </div>
             </div>
         </div>

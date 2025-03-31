@@ -3,8 +3,12 @@ import logo from '../../assets/logo.svg'
 import location from '../../assets/location.svg'
 import phone from '../../assets/phone.svg'
 import arrow from '../../assets/arrow.svg'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+
+    const { t, i18n } = useTranslation();
+
   return (
     <footer className='mb-[166px]'>
         <div className='container mx-auto'>
@@ -17,7 +21,7 @@ const Footer = () => {
                 <div>
                 <div className='flex items-center gap-[20px] cursor-pointer'>
                     <img src={location} alt="location" />
-                    <h2>O'zbekiston, Buxoro shaxri</h2>
+                    <h2>{t("O'zbekiston, Buxoro shaxri")}</h2>
                     <img src={arrow} alt="arrow image" />
                 </div>
                 <div className='flex items-center gap-[20px] mt-2 cursor-pointer'>
