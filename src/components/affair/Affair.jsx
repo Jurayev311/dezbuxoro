@@ -41,32 +41,35 @@ const services = [
 ];
 
 const Affair = () => {
-
     const { t } = useTranslation();
 
     return (
-        <section className="mt-[159px]">
-            <div className="container mx-auto px-6">
-                <h2 className="text-[52px] font-bold text-gray-800 mb-[43px]">{t("Xizmat turi")}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="mt-[80px] md:mt-[120px] lg:mt-[159px] px-4 sm:px-6">
+            <div className="container mx-auto">
+                <h2 className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold text-gray-800 mb-[30px] sm:mb-[43px] text-center md:text-left">
+                    {t("Xizmat turi")}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-[#C4F7CB] p-6 rounded-xl"
+                            className="bg-[#C4F7CB] p-4 sm:p-6 rounded-xl hover:shadow-lg transition-shadow duration-300"
                         >
-                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                                 {t(service.title)}
                             </h3>
-                            <p className="text-gray-600 mt-[16px] min-h-[80px]">{t(service.description)}</p>
-                            <div className="flex flex-row-reverse gap-[65px]">
+                            <p className="text-gray-600 mt-3 sm:mt-4 min-h-[60px] sm:min-h-[80px] text-sm sm:text-base">
+                                {t(service.description)}
+                            </p>
+                            <div className="flex flex-row gap-6 sm:flex-row items-center sm:items-end sm:justify-between sm:gap-[30px] lg:gap-[65px] mt-4">
+                                <button className='hover:opacity-65 rounded-[25px] w-full sm:w-[150px] lg:w-[190px] h-[40px] sm:h-[45px] lg:h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer text-sm sm:text-base mt-4 sm:mt-0'>
+                                    {t("Bog'lanish")}
+                                </button>
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-[150px] h-[150px] rounded-full mx-auto mb-4"
+                                    className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] lg:w-[150px] lg:h-[150px] rounded-full mx-auto"
                                 />
-                                <button className='mt-[95px] hover:opacity-65 rounded-[25px] w-[190px] h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer'>
-                                    {t("Bog'lanish")}
-                                </button>
                             </div>
                         </div>
                     ))}
@@ -75,5 +78,4 @@ const Affair = () => {
         </section>
     );
 };
-
 export default Affair;

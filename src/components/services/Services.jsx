@@ -26,25 +26,29 @@ const Services = () => {
     const { t } = useTranslation();
 
     return (
-        <section id='services' className='mt-[143px]'>
+        <section id='services' className='mt-[80px] md:mt-[143px] px-4 sm:px-6'>
             <div className='container mx-auto'>
                 <div>
-                    <h2 className='text-[52px] font-bold text-[#023106]'>{t("Xizmatlar")}</h2>
-                    <p className='text-[18px] font-normal text-[#666666] mt-4 mb-[40px]'>
+                    <h2 className='text-[32px] sm:text-[42px] md:text-[52px] font-bold text-[#023106]'>{t("Xizmatlar")}</h2>
+                    <p className='text-[16px] sm:text-[18px] font-normal text-[#666666] mt-3 sm:mt-4 mb-[30px] sm:mb-[40px]'>
                         {t("Biz sizga samarali va sifatli xizmat taqdim etamiz")}.
                     </p>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                     {servicesData.map((service, index) => (
-                        <div key={index} className='border border-[#0231025D] flex items-center justify-between gap-8 p-6 rounded-lg shadow-md bg-white'>
-                            <div className='w-[30%] flex justify-evenly'>
-                                <img src={service.image} alt='service' className='max-w-full h-auto rounded-lg' />
+                        <div key={index} className='border border-[#0231025D] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 p-4 sm:p-6 rounded-lg shadow-md bg-white'>
+                            <div className='w-full md:w-[30%] flex justify-center md:justify-evenly'>
+                                <img 
+                                    src={service.image} 
+                                    alt='service' 
+                                    className='max-w-full h-auto rounded-lg max-h-[200px] md:max-h-none' 
+                                />
                             </div>
 
-                            <div className='w-[70%]'>
-                                <h2 className='text-[24px] font-bold mb-4 text-[#033102]'>{t(service.title)}</h2>
-                                <p className='text-[16px] text-[#666666]'>{t(service.description)}</p>
+                            <div className='w-full md:w-[70%] mt-4 md:mt-0'>
+                                <h2 className='text-[20px] sm:text-[24px] font-bold mb-2 sm:mb-4 text-[#033102]'>{t(service.title)}</h2>
+                                <p className='text-[14px] sm:text-[16px] text-[#666666]'>{t(service.description)}</p>
                             </div>
                         </div>
                     ))}

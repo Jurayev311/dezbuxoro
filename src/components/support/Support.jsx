@@ -37,23 +37,26 @@ const Support = () => {
   }
 
   return (
-    <section className="py-10">
+    <section className="py-8 md:py-10 px-4 sm:px-6">
       <div className="container mx-auto">
-        <div className="bg-gradient-to-tr from-[#1A7C15] to-[#A1CE7D] flex items-center justify-center rounded-2xl mt-[150px] gap-[200px]">
-          <div className="bg-white p-8 rounded-xl shadow-lg w-[400px]">
-            <form onSubmit={SendMessage} id='contact-form' action="">
-              <h2 className="text-3xl font-bold text-gray-800">{t("Ma'lumotingizni qoldiring")}</h2>
-
+        <div className="bg-gradient-to-tr from-[#1A7C15] to-[#A1CE7D] flex flex-col lg:flex-row items-center justify-between rounded-2xl mt-[80px] md:mt-[120px] lg:mt-[150px] gap-8 lg:gap-[50px] xl:gap-[200px] p-6 sm:p-8 lg:p-10">
+          
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg w-full lg:w-[400px] order-2 lg:order-1">
+            <form onSubmit={SendMessage} id='contact-form'>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+                {t("Ma'lumotingizni qoldiring")}
+              </h2>
+  
               <div className='mt-4'>
                 <input
                   type="text"
                   id="name"
                   placeholder={t("Ismingiz")}
                   required
-                  className="w-full px-4 py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
                 />
               </div>
-
+  
               <div className='mt-4 mb-5'>
                 <input
                   type="tel"
@@ -61,18 +64,26 @@ const Support = () => {
                   name="phone"
                   placeholder="+998-94-033-72-12"
                   required
-                  className="w-full px-4 py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
                 />
               </div>
-
-              <button loading={loading} type='submit' className='w-full rounded-[5px] h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer'>
+  
+              <button 
+                type='submit' 
+                className={`w-full rounded-[5px] h-[45px] sm:h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer transition-opacity hover:opacity-90 ${loading ? 'opacity-80' : ''}`}
+                disabled={loading}
+              >
                 {loading ? t('Yuborilmoqda...') : t("Bog'lanish")}
               </button>
             </form>
           </div>
-
-          <div className="flex items-center justify-center">
-            <img src={supportImage} alt="support image" className="max-w-full h-auto" />
+  
+          <div className="hidden lg:flex items-center justify-center order-1 lg:order-2">
+            <img 
+              src={supportImage} 
+              alt="support image" 
+              className="max-w-full h-auto max-h-[300px] xl:max-h-none" 
+            />
           </div>
         </div>
       </div>
