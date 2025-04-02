@@ -37,7 +37,7 @@ const Hero = () => {
               className='hover:opacity-65 rounded-[25px] w-[160px] sm:w-[190px] h-[45px] sm:h-[49px] bg-[#128F10] text-white font-bold cursor-pointer transition-opacity duration-300'
               data-aos="zoom-in"
             >
-              {t("Bog'lanish")}
+              <a href="#faq">{t("Bog'lanish")}</a>
             </button>
           </div>
 

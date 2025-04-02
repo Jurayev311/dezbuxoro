@@ -46,7 +46,7 @@ const Support = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden py-8 md:py-10 px-4 sm:px-6">
+    <section id='support' className="overflow-hidden py-8 md:py-10 px-4 sm:px-6">
       <div className="container mx-auto">
         <div className="bg-gradient-to-tr from-[#1A7C15] to-[#A1CE7D] flex flex-col lg:flex-row items-center justify-between rounded-2xl mt-[80px] md:mt-[120px] lg:mt-[150px] gap-8 lg:gap-[50px] xl:gap-[200px] p-6 sm:p-8 lg:p-10"
           data-aos="fade-up">

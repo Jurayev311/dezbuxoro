@@ -55,7 +55,7 @@ const Affair = () => {
     return (
         <section className="overflow-hidden mt-[80px] md:mt-[120px] lg:mt-[159px] px-4 sm:px-6">
             <div className="container mx-auto">
-                <h2 
+                <h2
                     className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold text-gray-800 mb-[30px] sm:mb-[43px] text-center md:text-left"
                     data-aos="fade-up"
                 >
@@ -76,7 +76,7 @@ const Affair = () => {
                             </p>
                             <div className="flex flex-row gap-6 sm:flex-row items-center sm:items-end sm:justify-between sm:gap-[30px] lg:gap-[65px] mt-4">
                                 <button className='hover:opacity-65 rounded-[25px] w-full sm:w-[150px] lg:w-[190px] h-[40px] sm:h-[45px] lg:h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer text-sm sm:text-base mt-4 sm:mt-0'>
-                                    {t("Bog'lanish")}
+                                    <a href="#support">{t("Bog'lanish")}</a>
                                 </button>
                                 <img
                                     src={service.image}

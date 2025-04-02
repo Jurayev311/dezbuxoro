@@ -39,7 +39,7 @@ const InfoMessage = () => {
             {t("Bizning ko'p yillardan beri o'z faoliyatini olib borayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun")}
           </p>
           <button className='hover:opacity-75 rounded-[25px] w-full md:w-[190px] h-[49px] bg-gradient-to-t from-[#1A7C15] to-[#A1CE7D] text-white font-bold cursor-pointer transition-opacity duration-300'>
-            {t("Bog'lanish")}
+            <a href="#support">{t("Bog'lanish")}</a>
           </button>
         </div>
       </div>
