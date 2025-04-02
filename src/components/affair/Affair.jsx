@@ -1,11 +1,12 @@
-import React from "react";
-import klapalar from '../../assets/klapalar.svg'
-import tarakan from '../../assets/tarakan.svg'
-import burgalar from '../../assets/BURGALAR.svg'
-import chayon from '../../assets/CHAYON.svg'
-import kemiruvchi from '../../assets/KEMERUVCHILAR.svg'
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import klapalar from '../../assets/klapalar.svg';
+import tarakan from '../../assets/tarakan.svg';
+import burgalar from '../../assets/BURGALAR.svg';
+import chayon from '../../assets/CHAYON.svg';
+import kemiruvchi from '../../assets/KEMERUVCHILAR.svg';
 import { useTranslation } from "react-i18next";
-
 
 const services = [
     {
@@ -43,10 +44,21 @@ const services = [
 const Affair = () => {
     const { t } = useTranslation();
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
+
     return (
-        <section className="mt-[80px] md:mt-[120px] lg:mt-[159px] px-4 sm:px-6">
+        <section className="overflow-hidden mt-[80px] md:mt-[120px] lg:mt-[159px] px-4 sm:px-6">
             <div className="container mx-auto">
-                <h2 className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold text-gray-800 mb-[30px] sm:mb-[43px] text-center md:text-left">
+                <h2 
+                    className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold text-gray-800 mb-[30px] sm:mb-[43px] text-center md:text-left"
+                    data-aos="fade-up"
+                >
                     {t("Xizmat turi")}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -54,6 +66,7 @@ const Affair = () => {
                         <div
                             key={index}
                             className="bg-[#C4F7CB] p-4 sm:p-6 rounded-xl hover:shadow-lg transition-shadow duration-300"
+                            data-aos="zoom-in"
                         >
                             <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                                 {t(service.title)}
@@ -78,4 +91,5 @@ const Affair = () => {
         </section>
     );
 };
+
 export default Affair;

@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
 
 const Faq = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  }, []);
 
   const faqItems = [
     {
@@ -20,7 +30,11 @@ const Faq = () => {
   ];
 
   return (
-    <section id='faq' className="mt-20 md:mt-28 lg:mt-[136px] px-5 sm:px-6">
+    <section 
+      id='faq' 
+      className="overflow-hidden mt-20 md:mt-28 lg:mt-[136px] px-5 sm:px-6" 
+      data-aos='fade-up'
+    >
       <div className="container mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-10 text-center md:text-left">
           {t("faq_title")}
@@ -31,6 +45,7 @@ const Faq = () => {
             <div 
               key={index} 
               className="border-b border-gray-200 rounded-lg overflow-hidden transition-all hover:bg-gray-50/50"
+              data-aos='fade-left'
             >
               <details className="group">
                 <summary className="flex justify-between items-center p-4 sm:p-5 cursor-pointer list-none">

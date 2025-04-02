@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import servicesImage from '../../assets/services.svg';
 import servicesImage2 from '../../assets/services2.svg';
 import servicesImage3 from '../../assets/services3.svg';
@@ -25,10 +27,18 @@ const servicesData = [
 const Services = () => {
     const { t } = useTranslation();
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    }, []);
+
     return (
-        <section id='services' className='mt-[80px] md:mt-[143px] px-4 sm:px-6'>
+        <section id='services' className='overflow-hidden mt-[80px] md:mt-[143px] px-4 sm:px-6'>
             <div className='container mx-auto'>
-                <div>
+                <div data-aos='fade-up'>
                     <h2 className='text-[32px] sm:text-[42px] md:text-[52px] font-bold text-[#023106]'>{t("Xizmatlar")}</h2>
                     <p className='text-[16px] sm:text-[18px] font-normal text-[#666666] mt-3 sm:mt-4 mb-[30px] sm:mb-[40px]'>
                         {t("Biz sizga samarali va sifatli xizmat taqdim etamiz")}.
@@ -37,12 +47,16 @@ const Services = () => {
 
                 <div className="space-y-6 sm:space-y-8">
                     {servicesData.map((service, index) => (
-                        <div key={index} className='border border-[#0231025D] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 p-4 sm:p-6 rounded-lg shadow-md bg-white'>
+                        <div
+                            key={index}
+                            className='border border-[#0231025D] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 p-4 sm:p-6 rounded-lg shadow-md bg-white'
+                            data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
+                        >
                             <div className='w-full md:w-[30%] flex justify-center md:justify-evenly'>
-                                <img 
-                                    src={service.image} 
-                                    alt='service' 
-                                    className='max-w-full h-auto rounded-lg max-h-[200px] md:max-h-none' 
+                                <img
+                                    src={service.image}
+                                    alt='service'
+                                    className='max-w-full h-auto rounded-lg max-h-[200px] md:max-h-none'
                                 />
                             </div>
 
