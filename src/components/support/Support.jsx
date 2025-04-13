@@ -97,8 +97,11 @@ const Support = () => {
                   name="phone"
                   placeholder="+998-94-033-72-12"
                   required
+                  pattern="^\+998-\d{2}-\d{3}-\d{2}-\d{2}$"
+                  title="Telefon raqami O'zbekiston formati bo'yicha: +998-xx-xxx-xx-xx"
                   className="w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
                 />
+
               </div>
 
               <button
