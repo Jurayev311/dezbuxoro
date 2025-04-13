@@ -11,31 +11,53 @@ const Support = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const SendMessage = (e) => {
+  const SendMessage = async (e) => {
     setLoading(true);
     e.preventDefault();
+
     const token = '7723739609:AAGuNd7ZTYiNc0iH2Mxt0wUBp19CEFg8jbk';
     const chat_id = 5432334027;
     const url = `https://api.telegram.org/bot${token}/SendMessage`;
 
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
-    const message = `foydalanuvchi ismi: ${name}, \nTelefon raqami: ${phone}`;
 
-    axios({
-      url: url,
-      method: 'POST',
-      data: {
-        'chat_id': chat_id,
-        'text': message,
-      }
-    }).then((res) => {
+    try {
+      // IP va geo ma'lumotlarni olish
+      const ipRes = await fetch('https://ipapi.co/json/');
+      const ipData = await ipRes.json();
+
+      const ip = ipData.ip;
+      const city = ipData.city;
+      const region = ipData.region;
+      const country = ipData.country_name;
+      const latitude = ipData.latitude;
+      const longitude = ipData.longitude;
+
+      const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+      const message = `
+  Foydalanuvchi ismi: ${name}
+  Telefon raqami: ${phone}
+  
+  🌐 IP manzili: ${ip}
+  📍 Joylashuvi: ${city}, ${region}, ${country}
+  🗺 Google xarita: ${mapsLink}
+      `;
+
+      await axios.post(url, {
+        chat_id,
+        text: message,
+      });
+
       document.getElementById('contact-form').reset();
-      console.log(res);
-    })
-      .catch((error) => { console.log(error); })
-      .finally(() => { setLoading(false); })
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   useEffect(() => {
     AOS.init({
