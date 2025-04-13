@@ -11,14 +11,6 @@ const Support = () => {
 
   const [maskVisible, setMaskVisible] = useState(true);
 
-  const handleFocus = () => {
-    setMaskVisible(false);
-  };
-
-  const handleBlur = () => {
-    setMaskVisible(true);
-  };
-
   const { t, i18n } = useTranslation();
 
   const [loading, setLoading] = useState(false);
@@ -102,16 +94,7 @@ const Support = () => {
               </div>
 
               <div className='mt-4 mb-5'>
-                <InputMask
-                  required
-                  className="w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-                  id="phone"
-                  mask="(999) 99-999-99-99"
-                  placeholder="(998) 90-123-45-67"
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  showMask={maskVisible}  // Maskani dinamik tarzda boshqarish
-                />
+              <InputMask type='tel' required className='w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base' id="phone" mask="(999) 99-999-99-99" placeholder="(998) 90-123-45-67" aria-labelledby='phone'></InputMask>
               </div>
 
               <button
