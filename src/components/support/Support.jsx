@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { InputMask } from 'primereact/inputmask';
+
 
 const Support = () => {
 
@@ -23,7 +25,6 @@ const Support = () => {
     const phone = document.getElementById("phone").value;
 
     try {
-      // IP va geo ma'lumotlarni olish
       const ipRes = await fetch('https://ipapi.co/json/');
       const ipData = await ipRes.json();
 
@@ -91,17 +92,7 @@ const Support = () => {
               </div>
 
               <div className='mt-4 mb-5'>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="+998-94-033-72-12"
-                  required
-                  pattern="^\+998-\d{2}-\d{3}-\d{2}-\d{2}$"
-                  title="Telefon raqami O'zbekiston formati bo'yicha: +998-xx-xxx-xx-xx"
-                  className="w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
-                />
-
+              <InputMask required className='w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base' id="phone" mask="(999) 99-999-99-99" placeholder="(998) 90-123-45-67"></InputMask>
               </div>
 
               <button
