@@ -92,7 +92,7 @@ const Support = () => {
               </div>
 
               <div className='mt-4 mb-5'>
-              <InputMask required className='w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base' id="phone" mask="(999) 99-999-99-99" placeholder="(998) 90-123-45-67" type='tel'></InputMask>
+              <InputMask required className='w-full px-4 py-2 sm:py-3 bg-[#E4E4E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base' id="phone" mask="(999) 99-999-99-99" placeholder="(998) 90-123-45-67" showMask={false}></InputMask>
               </div>
 
               <button
